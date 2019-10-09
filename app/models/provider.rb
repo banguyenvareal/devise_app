@@ -1,4 +1,6 @@
 class Provider < ApplicationRecord
-  has_many :users
-  validates_uniqueness_of :name
+  # belongs_to :user
+  has_many :user_providers, dependent: :destroy
+  has_many :users, through: :user_providers
+  validates :name, uniqueness: true
 end

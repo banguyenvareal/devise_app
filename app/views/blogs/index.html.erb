@@ -4,11 +4,11 @@
   <p>name: <%= current_user[:name] %></p>
   <p>uid facebook: <%= current_user[:uid_facebook] %></p>
   <p>uid google: <%= current_user[:uid_google] %></p>
-  <% if current_user[:provider_facebook] == false %>
+  <% if current_user[:uid_facebook].nil? %>
     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> <br>
   <% end %>
 
-  <% if  current_user[:provider_google] == false %>
+  <% if  current_user[:uid_google].nil? %>
     <%= link_to "Sign in with google", user_google_oauth2_omniauth_authorize_path %> <br>
   <% end %>
 
